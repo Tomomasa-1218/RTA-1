@@ -6,7 +6,7 @@ import { taskUpdateSchema } from "@/lib/validators/task";
 
 export async function GET(
   _req: Request,
-  { params }: { params: { taskId: string } }
+  { params }: any
 ) {
   const session = await getServerSession(authOptions);
   if (!session?.user) {
@@ -24,7 +24,7 @@ export async function GET(
 
 export async function PUT(
   req: Request,
-  { params }: { params: { taskId: string } }
+  { params }: any
 ) {
   const session = await getServerSession(authOptions);
   if (!session?.user) {
@@ -50,7 +50,7 @@ export async function PUT(
 
 export async function DELETE(
   _req: Request,
-  { params }: { params: { taskId: string } }
+  { params }: any
 ) {
   const session = await getServerSession(authOptions);
   if (!session?.user) {
