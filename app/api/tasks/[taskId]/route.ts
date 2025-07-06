@@ -1,11 +1,11 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import prisma from "@/lib/prisma";
 import { taskUpdateSchema } from "@/lib/validators/task";
 
 export async function GET(
-  _req: NextRequest,
+  _req: Request,
   { params }: { params: { taskId: string } }
 ) {
   const session = await getServerSession(authOptions);
@@ -23,7 +23,7 @@ export async function GET(
 }
 
 export async function PUT(
-  req: NextRequest,
+  req: Request,
   { params }: { params: { taskId: string } }
 ) {
   const session = await getServerSession(authOptions);
@@ -49,7 +49,7 @@ export async function PUT(
 }
 
 export async function DELETE(
-  _req: NextRequest,
+  _req: Request,
   { params }: { params: { taskId: string } }
 ) {
   const session = await getServerSession(authOptions);
